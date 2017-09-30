@@ -1,14 +1,14 @@
-﻿using Library;
+﻿using GrainInterfaces;
 using Orleans;
 using System.Threading.Tasks;
 
-namespace OrleansHostApp2.Grains
+namespace Grains
 {
     public class GrainOne : Grain, IGrainOne
     {
         public Task<string> SayHello()
         {
-            return Task.FromResult($"Hello from {DeploymentConstants.ONE}");
+            return Task.FromResult("Hello from GrainOne");
         }
     }
 }

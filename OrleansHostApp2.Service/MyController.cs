@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Library;
+using GrainInterfaces;
 
 namespace OrleansHostApp2
 {

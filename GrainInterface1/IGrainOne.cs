@@ -1,9 +1,9 @@
 ﻿using Orleans;
 using System.Threading.Tasks;
 
-namespace Library
+namespace GrainInterfaces
 {
-    public interface IGrainTwo : IGrainWithGuidKey
+    public interface IGrainOne : IGrainWithGuidKey
     {
         Task<string> SayHello();
     }

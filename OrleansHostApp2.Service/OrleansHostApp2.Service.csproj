@@ -38,6 +38,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Grain2\Grain2.csproj" />
+    <ProjectReference Include="..\GrainInterface1\GrainInterface1.csproj" />
+    <ProjectReference Include="..\GrainInterface2\GrainInterface2.csproj" />
     <ProjectReference Include="..\Library\Library.csproj" />
   </ItemGroup>
   <ItemGroup>
