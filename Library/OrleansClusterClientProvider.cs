@@ -23,7 +23,6 @@ namespace Library
             clientConfig.GatewayProvider = ClientConfiguration.GatewayProviderType.Custom;
             clientConfig.DataConnectionString = "http://localhost:8500";
             clientConfig.CustomGatewayProviderAssemblyName = "OrleansConsulUtils";
-            clientConfig.TraceToConsole = true;
             return clientConfig;
         }
 
