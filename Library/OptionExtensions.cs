@@ -15,6 +15,7 @@ namespace Library
             globals.LivenessType = GlobalConfiguration.LivenessProviderType.Custom;
             globals.DataConnectionString = "http://localhost:8500";
             globals.MembershipTableAssembly = "OrleansConsulUtils";
+            globals.ReminderTableAssembly = "";
         }
 
         public static void SetDefaults(this NodeConfiguration config, NodeConfigurationOptions options)
