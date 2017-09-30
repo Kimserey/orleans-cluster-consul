@@ -15,7 +15,7 @@ namespace Library
             globals.LivenessType = GlobalConfiguration.LivenessProviderType.Custom;
             globals.DataConnectionString = "http://localhost:8500";
             globals.MembershipTableAssembly = "OrleansConsulUtils";
-            globals.ReminderTableAssembly = "";
+            globals.ReminderServiceType = GlobalConfiguration.ReminderServiceProviderType.Disabled;
         }
 
         public static void SetDefaults(this NodeConfiguration config, NodeConfigurationOptions options)
@@ -27,12 +27,8 @@ namespace Library
 
             var proxyGatewayEndpoint = new IPEndPoint(ResolveIPAddress(options.ProxyGatewayEndpoint.Address), options.ProxyGatewayEndpoint.Port);
             config.ProxyGatewayEndpoint = proxyGatewayEndpoint;
-            config.TraceToConsole = options.TraceToConsole;
-            config.TraceFileName = options.TraceFileName;
-            config.TraceFilePattern = options.TraceFilePattern;
-
-            Enum.TryParse(options.DefaultTraceLevel, out Severity defaultTraceLevel);
-            config.DefaultTraceLevel = defaultTraceLevel;
+            config.TraceToConsole = true;
+            config.DefaultTraceLevel = Severity.Info;
 
             config.HostNameOrIPAddress = options.HostNameOrIPAddress;
             config.Port = options.Port;
