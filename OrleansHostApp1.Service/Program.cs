@@ -10,7 +10,7 @@ namespace OrleansHostApp1
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
-                .UseUrls("http://localhost:20005")
+                .UseUrls("http://localhost:20007")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .UseApplicationInsights()

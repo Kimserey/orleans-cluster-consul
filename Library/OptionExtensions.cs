@@ -27,8 +27,8 @@ namespace Library
 
             var proxyGatewayEndpoint = new IPEndPoint(ResolveIPAddress(options.ProxyGatewayEndpoint.Address), options.ProxyGatewayEndpoint.Port);
             config.ProxyGatewayEndpoint = proxyGatewayEndpoint;
-            config.DefaultTraceLevel = Severity.Info;
-
+            config.DefaultTraceLevel = Severity.Warning;
+            config.TraceToConsole = false;
             config.HostNameOrIPAddress = options.HostNameOrIPAddress;
             config.Port = options.Port;
         }

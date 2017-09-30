@@ -49,7 +49,7 @@ namespace OrleansHostApp1
                 config.Globals.SetGlobalsForConsul(DeploymentConstants.ONE);
                 config.Defaults.SetDefaults(options.Defaults);
                 LogManager.LogConsumers.Add(new OrleansLoggerFactoryAdapter(provider.GetService<ILoggerFactory>()));
-
+                
                 var siloHost = new SiloHost(Dns.GetHostName(), config);
                 return siloHost;
             });
@@ -60,8 +60,8 @@ namespace OrleansHostApp1
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             var logger = app.ApplicationServices.GetRequiredService<Serilog.ILogger>();
-            loggerFactory.AddSerilog(logger, true)
-                .AddDebug();
+            loggerFactory.AddSerilog(logger, true);
+            //loggerFactory.AddDebug();
 
             if (!GCSettings.IsServerGC) throw new InvalidProgramException("Server GC should be enabled for orleans");
 

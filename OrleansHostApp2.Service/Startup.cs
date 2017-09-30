@@ -35,7 +35,8 @@ namespace OrleansHostApp2
             services.AddTransient<Serilog.ILogger>(serviceProvider =>
             {
                 return new LoggerConfiguration()
-                    .ReadFrom.ConfigurationSection(Configuration.GetSection("Serilog"))
+                    .ReadFrom
+                    .ConfigurationSection(Configuration.GetSection("Serilog"))
                     .CreateLogger();
             });
 
@@ -65,8 +66,8 @@ namespace OrleansHostApp2
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             var logger = app.ApplicationServices.GetRequiredService<Serilog.ILogger>();
-            loggerFactory.AddSerilog(logger, true)
-                .AddDebug();
+            loggerFactory.AddSerilog(logger, true);
+            //loggerFactory.AddDebug();
 
             StartSilo(app);
             app.UseMvc();
