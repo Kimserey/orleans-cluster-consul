@@ -25,7 +25,8 @@ namespace Library
                 return Dns.GetHostAddresses(hostNameOrIPAddress).First(x => x.AddressFamily == AddressFamily.InterNetwork);
             }
 
-            var proxyGatewayEndpoint = new IPEndPoint(ResolveIPAddress(options.ProxyGatewayEndpoint.Address), options.ProxyGatewayEndpoint.Port);
+            var address = ResolveIPAddress(options.ProxyGatewayEndpoint.Address);
+            var proxyGatewayEndpoint = new IPEndPoint(address, options.ProxyGatewayEndpoint.Port);
             config.ProxyGatewayEndpoint = proxyGatewayEndpoint;
             config.DefaultTraceLevel = Severity.Warning;
             config.TraceToConsole = false;
