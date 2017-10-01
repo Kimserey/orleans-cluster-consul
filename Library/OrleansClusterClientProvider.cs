@@ -24,7 +24,7 @@ namespace Library
 
             if (!client.IsInitialized)
             {
-                client.Connect();
+                client.Connect().Wait();
             }
 
             return client;

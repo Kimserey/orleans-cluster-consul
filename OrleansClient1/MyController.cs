@@ -28,7 +28,7 @@ namespace OrleansHostApp1
         [HttpGet("/clusterTwo")]
         public async Task<IActionResult> CallTwo()
         {
-            var grain = _grainFactoryResolver.Get("clusterOne")
+            var grain = _grainFactoryResolver.Get("clusterTwo")
                 .GetGrain<IGrainTwo>(Guid.Empty);
             var greeting = await grain.SayHello();
             return Ok(greeting);
