@@ -41,7 +41,7 @@ namespace OrleansHostApp1
             });
 
             services.Configure<OrleansClusterOptions>(Configuration.GetSection("Orleans:Cluster"));
-            services.AddSingleton<IOrleansClusterClientProvider, OrleansClusterClientProvider>();
+            services.AddSingleton<IGrainFactoryResolver, GrainFactoryResolver>();
             services.AddSingleton(provider =>
             {
                 var options = provider.GetService<IOptions<OrleansClusterOptions>>()?.Value;

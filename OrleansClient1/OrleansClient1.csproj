@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GrainInterface1\GrainInterface1.csproj" />
+    <ProjectReference Include="..\GrainInterface2\GrainInterface2.csproj" />
     <ProjectReference Include="..\Library\Library.csproj" />
   </ItemGroup>
 

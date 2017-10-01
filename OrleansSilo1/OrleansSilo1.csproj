@@ -194,10 +194,6 @@
       <Project>{f099c1a6-acee-4169-ab84-719498f886a7}</Project>
       <Name>Grain1</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Grain2\Grain2.csproj">
-      <Project>{241a2db5-a640-489c-8fc1-8c2813ffa20e}</Project>
-      <Name>Grain2</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Library\Library.csproj">
       <Project>{831f3c32-4589-42d0-8c67-387dbd851358}</Project>
       <Name>Library</Name>

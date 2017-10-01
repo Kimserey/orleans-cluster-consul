@@ -8,17 +8,17 @@ namespace OrleansHostApp2
 {
     public class MyController: Controller
     {
-        private readonly IOrleansClusterClientProvider _clientProvider;
+        private readonly IGrainFactoryResolver _grainFactoryResolver;
 
-        public MyController(IOrleansClusterClientProvider clientProvider)
+        public MyController(IGrainFactoryResolver grainFactoryResolver)
         {
-            _clientProvider = clientProvider;
+            _grainFactoryResolver = grainFactoryResolver;
         }
 
         [HttpGet("/self")]
         public async Task<IActionResult> Self()
         {
-            var client = await _clientProvider.Get(DeploymentConstants.TWO);
+            var client = _grainFactoryResolver.Get(DeploymentConstants.TWO);
             var greeting = await client.GetGrain<IGrainTwo>(Guid.Empty).SayHello();
             return Ok(greeting);
         }
@@ -26,7 +26,7 @@ namespace OrleansHostApp2
         [HttpGet("/external")]
         public async Task<IActionResult> External()
         {
-            var client = await _clientProvider.Get(DeploymentConstants.ONE);
+            var client = _grainFactoryResolver.Get(DeploymentConstants.ONE);
             var greeting = await client.GetGrain<IGrainOne>(Guid.Empty).SayHello();
             return Ok(greeting);
         }

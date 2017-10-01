@@ -6,24 +6,20 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class OrleansClusterClientProvider : IOrleansClusterClientProvider
+    public class GrainFactoryResolver : IGrainFactoryResolver
     {
-        public async Task<IClusterClient> Get(string deploymentId)
+        public IGrainFactory Get(string deploymentId)
         {
-            var config = CreateConsulClientConfiguration(deploymentId);
-            var client = new ClientBuilder().UseConfiguration(config).Build();
-            await client.Connect();
-            return client;
-        }
+            GrainClient.Initialize(new ClientConfiguration
+            {
+                DeploymentId = deploymentId,
+                GatewayProvider = ClientConfiguration.GatewayProviderType.Custom,
+                DataConnectionString = "http://localhost:8500",
+                CustomGatewayProviderAssemblyName = "OrleansConsulUtils",
+                DefaultTraceLevel = Orleans.Runtime.Severity.Info
+            });
 
-        public ClientConfiguration CreateConsulClientConfiguration(string deploymentId)
-        {
-            var clientConfig = new ClientConfiguration();
-            clientConfig.DeploymentId = deploymentId;
-            clientConfig.GatewayProvider = ClientConfiguration.GatewayProviderType.Custom;
-            clientConfig.DataConnectionString = "http://localhost:8500";
-            clientConfig.CustomGatewayProviderAssemblyName = "OrleansConsulUtils";
-            return clientConfig;
+            return GrainClient.GrainFactory;
         }
 
     }

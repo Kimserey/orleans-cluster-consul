@@ -48,7 +48,7 @@ namespace OrleansHostApp2
         {
             services.Configure<OrleansClusterOptions>(Configuration.GetSection("Orleans:Cluster"));
 
-            services.AddSingleton<IOrleansClusterClientProvider, OrleansClusterClientProvider>();
+            services.AddSingleton<IGrainFactoryResolver, GrainFactoryResolver>();
 
             services.AddSingleton(provider =>
             {

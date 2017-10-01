@@ -1,4 +1,5 @@
 ﻿using GrainInterfaces;
+using Library;
 using Microsoft.AspNetCore.Mvc;
 using Orleans;
 using System;
@@ -8,17 +9,27 @@ namespace OrleansHostApp1
 {
     public class MyController : Controller
     {
-        private readonly IGrainFactory _grainFactory;
+        private readonly IGrainFactoryResolver _grainFactoryResolver;
 
-        public MyController(IGrainFactory grainFactory)
+        public MyController(IGrainFactoryResolver grainFactoryResolver)
         {
-            _grainFactory = grainFactory;
+            _grainFactoryResolver = grainFactoryResolver;
         }
 
-        [HttpGet("/hello")]
-        public async Task<IActionResult> Self()
+        [HttpGet("/clusterOne")]
+        public async Task<IActionResult> CallOne()
         {
-            var grain = _grainFactory.GetGrain<IGrainOne>(Guid.Empty);
+            var grain = _grainFactoryResolver.Get("clusterOne")
+                .GetGrain<IGrainOne>(Guid.Empty);
+            var greeting = await grain.SayHello();
+            return Ok(greeting);
+        }
+
+        [HttpGet("/clusterTwo")]
+        public async Task<IActionResult> CallTwo()
+        {
+            var grain = _grainFactoryResolver.Get("clusterOne")
+                .GetGrain<IGrainTwo>(Guid.Empty);
             var greeting = await grain.SayHello();
             return Ok(greeting);
         }

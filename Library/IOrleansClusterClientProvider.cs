@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public interface IOrleansClusterClientProvider
+    public interface IGrainFactoryResolver
     {
-        Task<IClusterClient> Get(string providerName);
+        IGrainFactory Get(string deploymentId);
     }
 }
