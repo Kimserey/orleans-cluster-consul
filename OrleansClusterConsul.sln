@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrleansHostApp2.Service", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansSilo1", "OrleansSilo1\OrleansSilo1.csproj", "{6C07B942-5C8F-4721-A79A-CE652EF0AAE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansClient1", "OrleansClient1\OrleansClient1.csproj", "{14796268-6633-4B8F-834A-6A1198D51640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrleansClient1", "OrleansClient1\OrleansClient1.csproj", "{14796268-6633-4B8F-834A-6A1198D51640}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grain2", "Grain2\Grain2.csproj", "{241A2DB5-A640-489C-8FC1-8C2813FFA20E}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrainInterface1", "GrainInterface1\GrainInterface1.csproj", "{29998B07-D007-4AED-8226-27E764BB1C2E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrainInterface2", "GrainInterface2\GrainInterface2.csproj", "{16D6A9B7-32F0-4FF8-95FF-D2E5DAB71A5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansSilo2", "OrleansSilo2\OrleansSilo2.csproj", "{68416645-72FF-42CC-B881-A1654176BFDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{16D6A9B7-32F0-4FF8-95FF-D2E5DAB71A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16D6A9B7-32F0-4FF8-95FF-D2E5DAB71A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16D6A9B7-32F0-4FF8-95FF-D2E5DAB71A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68416645-72FF-42CC-B881-A1654176BFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68416645-72FF-42CC-B881-A1654176BFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68416645-72FF-42CC-B881-A1654176BFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68416645-72FF-42CC-B881-A1654176BFDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

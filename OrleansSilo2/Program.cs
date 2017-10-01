@@ -1,10 +1,13 @@
 ﻿using Library;
+using Orleans.Runtime.Configuration;
+using Orleans.Runtime.Host;
 using System;
 using System.IO;
+using System.Net;
 
-namespace OrleansSilo1
+namespace OrleansSilo2
 {
-    // This project reference Grain1
+    // This project reference Grain2
     class Program
     {
         static void Main(string[] args)
