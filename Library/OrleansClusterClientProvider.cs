@@ -10,17 +10,26 @@ namespace Library
     {
         public IGrainFactory Get(string deploymentId)
         {
-            GrainClient.Initialize(new ClientConfiguration
-            {
-                DeploymentId = deploymentId,
-                GatewayProvider = ClientConfiguration.GatewayProviderType.Custom,
-                DataConnectionString = "http://localhost:8500",
-                CustomGatewayProviderAssemblyName = "OrleansConsulUtils",
-                DefaultTraceLevel = Orleans.Runtime.Severity.Info
-            });
+            var client = new ClientBuilder()
+                .UseConfiguration(
+                    new ClientConfiguration
+                    {
+                        DeploymentId = deploymentId,
+                        GatewayProvider = ClientConfiguration.GatewayProviderType.Custom,
+                        DataConnectionString = "http://localhost:8500",
+                        CustomGatewayProviderAssemblyName = "OrleansConsulUtils",
+                        DefaultTraceLevel = Orleans.Runtime.Severity.Info
+                    })
+                .Build();
 
-            return GrainClient.GrainFactory;
+            if (!client.IsInitialized)
+            {
+                client.Connect();
+            }
+
+            return client;
         }
 
     }
 }
+
