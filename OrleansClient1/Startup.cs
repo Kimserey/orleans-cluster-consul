@@ -13,13 +13,14 @@ namespace OrleansClient1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IGrainFactory>(sp => {
+            services.AddTransient<IGrainFactory>(sp => {
                 GrainClient.Initialize(new ClientConfiguration
                 {
-                    DeploymentId = "cluster1",
+                    DeploymentId = "cluster",
                     GatewayProvider = ClientConfiguration.GatewayProviderType.Custom,
                     DataConnectionString = "http://localhost:8500",
-                    CustomGatewayProviderAssemblyName = "OrleansConsulUtils"
+                    CustomGatewayProviderAssemblyName = "OrleansConsulUtils",
+                    DefaultTraceLevel = Orleans.Runtime.Severity.Warning
                 });
 
                 return GrainClient.GrainFactory;
