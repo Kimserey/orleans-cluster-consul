@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Orleans;
+using Orleans.Runtime;
 using Orleans.Runtime.Configuration;
 using System;
 using System.Threading.Tasks;
@@ -8,17 +9,21 @@ namespace Library
 {
     public class GrainFactoryResolver : IGrainFactoryResolver
     {
-        public IGrainFactory Get(string deploymentId)
+        public IGrainFactory Get(string deploymentId,
+            ClientConfiguration.GatewayProviderType gatewayProvider = ClientConfiguration.GatewayProviderType.Custom,
+            string dataConnectionString = "http://localhost:8500",
+            string customGatewayProviderAssemblyName = "OrleansConsulUtils",
+            Severity defaultTraceLevel = Severity.Verbose)
         {
             var client = new ClientBuilder()
                 .UseConfiguration(
                     new ClientConfiguration
                     {
                         DeploymentId = deploymentId,
-                        GatewayProvider = ClientConfiguration.GatewayProviderType.Custom,
-                        DataConnectionString = "http://localhost:8500",
-                        CustomGatewayProviderAssemblyName = "OrleansConsulUtils",
-                        DefaultTraceLevel = Orleans.Runtime.Severity.Verbose
+                        GatewayProvider = gatewayProvider,
+                        DataConnectionString = dataConnectionString,
+                        CustomGatewayProviderAssemblyName = customGatewayProviderAssemblyName,
+                        DefaultTraceLevel = defaultTraceLevel
                     })
                 .Build();
 

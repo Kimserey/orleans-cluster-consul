@@ -33,9 +33,9 @@ namespace Library
             var proxyGatewayEndpoint = new IPEndPoint(address, options.ProxyGatewayEndpoint.Port);
             config.ProxyGatewayEndpoint = proxyGatewayEndpoint;
             config.DefaultTraceLevel = Severity.Warning;
-            config.TraceToConsole = false;
             config.HostNameOrIPAddress = options.HostNameOrIPAddress;
             config.Port = options.Port;
+            config.TraceToConsole = true;
         }
     }
 }

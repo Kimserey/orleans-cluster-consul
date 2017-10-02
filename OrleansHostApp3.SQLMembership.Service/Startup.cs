@@ -23,7 +23,7 @@ namespace OrleansHostApp3.SQLMembership.Service
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
-            IConfigurationRoot Configuration = builder.Build();
+            Configuration = builder.Build();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -44,7 +44,10 @@ namespace OrleansHostApp3.SQLMembership.Service
             {
                 var options = provider.GetService<IOptions<OrleansClusterOptions>>()?.Value;
                 var config = new ClusterConfiguration();
-                config.Globals.SetGlobalsForConsul(options.Globals.DeploymentId);
+                config.Globals.SetGlobalsForConsul(options.Globals.DeploymentId, 
+                    GlobalConfiguration.LivenessProviderType.SqlServer,
+                    "Data Source=.\\SQLExpress; Database=Orleans; Trusted_Connection=True;", 
+                    "OrleansSqlUtils");
                 config.Defaults.SetDefaults(options.Defaults);
 
                 var siloHost = new SiloHost(Dns.GetHostName(), config);
@@ -54,7 +57,7 @@ namespace OrleansHostApp3.SQLMembership.Service
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
+            loggerFactory.AddConsole().AddDebug();
 
             if (env.IsDevelopment())
             {

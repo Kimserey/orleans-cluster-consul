@@ -8,13 +8,23 @@
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.0.0" />
     <PackageReference Include="Microsoft.Orleans.Core" Version="1.5.1" />
     <PackageReference Include="Microsoft.Orleans.OrleansCodeGenerator" Version="1.5.1" />
     <PackageReference Include="Microsoft.Orleans.OrleansConsulUtils" Version="1.5.1" />
     <PackageReference Include="Microsoft.Orleans.OrleansRuntime" Version="1.5.1" />
+    <PackageReference Include="Microsoft.Orleans.OrleansSqlUtils" Version="1.5.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Grain1\Grain1.csproj" />
     <ProjectReference Include="..\GrainInterface1\GrainInterface1.csproj" />
     <ProjectReference Include="..\Library\Library.csproj" />
   </ItemGroup>
