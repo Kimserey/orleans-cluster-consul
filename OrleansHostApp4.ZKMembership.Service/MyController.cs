@@ -5,7 +5,7 @@ using Library;
 using GrainInterfaces;
 using Orleans.Runtime.Configuration;
 
-namespace OrleansHostApp3.SQLMembership.Service
+namespace OrleansHostApp4.ZKMembership.Service
 {
     public class MyController: Controller
     {
@@ -19,10 +19,10 @@ namespace OrleansHostApp3.SQLMembership.Service
         [HttpGet("/self")]
         public async Task<IActionResult> Self()
         {
-            var client = _grainFactoryResolver.Get("AppSqlMembership",
-                    ClientConfiguration.GatewayProviderType.SqlServer,
-                    "Data Source=.\\SQLExpress; Database=Orleans; Trusted_Connection=True;",
-                    "OrleansSqlUtils");
+            var client = _grainFactoryResolver.Get("AppZkMembership",
+                    ClientConfiguration.GatewayProviderType.ZooKeeper,
+                    "http://localhost:2181",
+                    "OrleansZooKeeperUtils");
             var greeting = await client.GetGrain<IGrainOne>(Guid.Empty).SayHello();
             return Ok(greeting);
         }

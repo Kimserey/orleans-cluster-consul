@@ -23,7 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrainInterface2", "GrainInt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansSilo2", "OrleansSilo2\OrleansSilo2.csproj", "{68416645-72FF-42CC-B881-A1654176BFDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansHostApp3.SQLMembership.Service", "OrleansHostApp3.SQLMembership.Service\OrleansHostApp3.SQLMembership.Service.csproj", "{B1AB7B56-D814-406C-B605-96ED04DC11DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrleansHostApp3.SQLMembership.Service", "OrleansHostApp3.SQLMembership.Service\OrleansHostApp3.SQLMembership.Service.csproj", "{B1AB7B56-D814-406C-B605-96ED04DC11DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansHostApp4.ZKMembership.Service", "OrleansHostApp4.ZKMembership.Service\OrleansHostApp4.ZKMembership.Service.csproj", "{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{B1AB7B56-D814-406C-B605-96ED04DC11DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1AB7B56-D814-406C-B605-96ED04DC11DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1AB7B56-D814-406C-B605-96ED04DC11DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
