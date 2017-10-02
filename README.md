@@ -15,6 +15,7 @@ The following steps can be taken to reproduce the issue:
  1. Run consul
  2. Run OrleansHostApp1.Service
  3. Notice the silo being registered properly as alive in consul
+ ![1](https://github.com/Kimserey/orleans-cluster-consul/blob/master/OrleansHostApp1.Service/img/1_run_project.PNG?raw=true)
  4. Invoke http://localhost:20007/self
  5. Ctrl+c to close the project
  6. Notice a key being registered in consul using the proxy gateway address with it being marked as dead (status 6), the silo address is still alive (status 3)
