@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrainInterface2", "GrainInt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansSilo2", "OrleansSilo2\OrleansSilo2.csproj", "{68416645-72FF-42CC-B881-A1654176BFDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansHostApp3.SQLMembership.Service", "OrleansHostApp3.SQLMembership.Service\OrleansHostApp3.SQLMembership.Service.csproj", "{B1AB7B56-D814-406C-B605-96ED04DC11DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{68416645-72FF-42CC-B881-A1654176BFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68416645-72FF-42CC-B881-A1654176BFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68416645-72FF-42CC-B881-A1654176BFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1AB7B56-D814-406C-B605-96ED04DC11DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1AB7B56-D814-406C-B605-96ED04DC11DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1AB7B56-D814-406C-B605-96ED04DC11DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1AB7B56-D814-406C-B605-96ED04DC11DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

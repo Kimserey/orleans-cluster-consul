@@ -65,9 +65,9 @@ namespace OrleansHostApp2
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            var logger = app.ApplicationServices.GetRequiredService<Serilog.ILogger>();
-            loggerFactory.AddSerilog(logger, true);
-            //loggerFactory.AddDebug();
+            loggerFactory
+                .AddConsole()
+                .AddDebug();
 
             StartSilo(app);
             app.UseMvc();

@@ -4,7 +4,13 @@ namespace Library
 {
     public class OrleansClusterOptions
     {
+        public GlobalConfiugrationOptions Globals { get; set; }
         public NodeConfigurationOptions Defaults { get; set; }
+    }
+
+    public class GlobalConfiugrationOptions
+    {
+        public string DeploymentId { get; set; }
     }
 
     public class NodeConfigurationOptions

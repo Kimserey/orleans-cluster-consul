@@ -18,7 +18,7 @@ namespace Library
                         GatewayProvider = ClientConfiguration.GatewayProviderType.Custom,
                         DataConnectionString = "http://localhost:8500",
                         CustomGatewayProviderAssemblyName = "OrleansConsulUtils",
-                        DefaultTraceLevel = Orleans.Runtime.Severity.Info
+                        DefaultTraceLevel = Orleans.Runtime.Severity.Verbose
                     })
                 .Build();
 
