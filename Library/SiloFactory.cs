@@ -12,12 +12,16 @@ namespace Library
         {
             var config = new ClusterConfiguration();
 
-            // use consul as default
             if (configureMembershipProvider == null)
             {
                 config.Globals.SetGlobalsForConsul(deploymentId);
             }
+            else
+            {
+                configureMembershipProvider(config.Globals);
+            }
 
+            config.Globals.ReminderServiceType = GlobalConfiguration.ReminderServiceProviderType.Disabled;
             config.Defaults.SetDefaults("localhost", port, "localhost", proxy, true, Severity.Info);
 
             var siloHost = new SiloHost($"{Dns.GetHostName()}-{port}", config);

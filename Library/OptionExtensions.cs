@@ -19,7 +19,6 @@ namespace Library
             globals.LivenessType = liveness;
             globals.DataConnectionString = dataConnectionString;
             globals.MembershipTableAssembly = membershipTableAssembly;
-            globals.ReminderServiceType = GlobalConfiguration.ReminderServiceProviderType.Disabled;
         }
 
         public static void SetDefaults(this NodeConfiguration config, 
@@ -30,9 +29,12 @@ namespace Library
             bool traceToConsole = true,
             Severity defaultTraceLevel = Severity.Warning)
         {
+            IPAddress ResolveIPAddress(string address) => 
+                Dns.GetHostAddresses(address).First(x => x.AddressFamily == AddressFamily.InterNetwork);
+
             config.HostNameOrIPAddress = siloAddress;
             config.Port = siloPort;
-            config.ProxyGatewayEndpoint = new IPEndPoint(IPAddress.Parse(proxyGatewayAddress), proxyGatewayPort);
+            config.ProxyGatewayEndpoint = new IPEndPoint(ResolveIPAddress(proxyGatewayAddress), proxyGatewayPort);
             config.DefaultTraceLevel = defaultTraceLevel;
             config.TraceToConsole = traceToConsole;
         }

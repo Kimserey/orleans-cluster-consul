@@ -40,10 +40,12 @@ namespace OrleansHostApp3.SQLMembership.Service
 
             services.AddSingleton<IGrainFactoryResolver, GrainFactoryResolver>();
 
-            services.AddSingleton(provider =>
+            services.AddSingleton<SiloHost>(provider =>
             {
                 var options = provider.GetService<IOptions<OrleansClusterOptions>>()?.Value;
-                return SiloFactory.InitializeSilo(options.Globals.DeploymentId, options.Defaults.Port, options.Defaults.ProxyGatewayEndpoint.Port,
+                return SiloFactory.InitializeSilo(options.Globals.DeploymentId, 
+                    options.Defaults.Port, 
+                    options.Defaults.ProxyGatewayEndpoint.Port,
                     globals => {
                         globals.SetGlobalsForConsul(options.Globals.DeploymentId,
                             GlobalConfiguration.LivenessProviderType.SqlServer,
