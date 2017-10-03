@@ -22,20 +22,19 @@ namespace Library
             globals.ReminderServiceType = GlobalConfiguration.ReminderServiceProviderType.Disabled;
         }
 
-        public static void SetDefaults(this NodeConfiguration config, NodeConfigurationOptions options)
+        public static void SetDefaults(this NodeConfiguration config, 
+            string siloAddress = "localhost", 
+            int siloPort = 0, 
+            string proxyGatewayAddress = "localhost",
+            int proxyGatewayPort= 0,
+            bool traceToConsole = true,
+            Severity defaultTraceLevel = Severity.Warning)
         {
-            IPAddress ResolveIPAddress(string hostNameOrIPAddress)
-            {
-                return Dns.GetHostAddresses(hostNameOrIPAddress).First(x => x.AddressFamily == AddressFamily.InterNetwork);
-            }
-
-            var address = ResolveIPAddress(options.ProxyGatewayEndpoint.Address);
-            var proxyGatewayEndpoint = new IPEndPoint(address, options.ProxyGatewayEndpoint.Port);
-            config.ProxyGatewayEndpoint = proxyGatewayEndpoint;
-            config.DefaultTraceLevel = Severity.Warning;
-            config.HostNameOrIPAddress = options.HostNameOrIPAddress;
-            config.Port = options.Port;
-            config.TraceToConsole = true;
+            config.HostNameOrIPAddress = siloAddress;
+            config.Port = siloPort;
+            config.ProxyGatewayEndpoint = new IPEndPoint(IPAddress.Parse(proxyGatewayAddress), proxyGatewayPort);
+            config.DefaultTraceLevel = defaultTraceLevel;
+            config.TraceToConsole = traceToConsole;
         }
     }
 }

@@ -36,15 +36,13 @@ namespace OrleansHostApp4.ZKMembership.Service
             services.AddSingleton(provider =>
             {
                 var options = provider.GetService<IOptions<OrleansClusterOptions>>()?.Value;
-                var config = new ClusterConfiguration();
-                config.Globals.SetGlobalsForConsul(options.Globals.DeploymentId,
-                    GlobalConfiguration.LivenessProviderType.ZooKeeper,
-                    "127.0.0.1:2181",
-                    "OrleansZooKeeperUtils");
-                config.Defaults.SetDefaults(options.Defaults);
-
-                var siloHost = new SiloHost(Dns.GetHostName(), config);
-                return siloHost;
+                return SiloFactory.InitializeSilo(options.Globals.DeploymentId, options.Defaults.Port, options.Defaults.ProxyGatewayEndpoint.Port,
+                    globals => {
+                        globals.SetGlobalsForConsul(options.Globals.DeploymentId,
+                            GlobalConfiguration.LivenessProviderType.ZooKeeper,
+                            "127.0.0.1:2181",
+                            "OrleansZooKeeperUtils");
+                    });
             });
 
             services.AddMvc();
@@ -65,11 +63,8 @@ namespace OrleansHostApp4.ZKMembership.Service
 
         public void StartSilo(IApplicationBuilder app)
         {
-            if (!GCSettings.IsServerGC) throw new InvalidProgramException("Server GC should be enabled for orleans");
             var siloHost = app.ApplicationServices.GetRequiredService<SiloHost>();
-            siloHost.InitializeOrleansSilo();
-            var startedOk = siloHost.StartOrleansSilo();
-            if (!startedOk)
+            if (!siloHost.IsStarted)
             {
                 throw new SystemException(String.Format("Failed to start Orleans silo '{0}' as a {1} node", siloHost.Name, siloHost.Type));
             }
