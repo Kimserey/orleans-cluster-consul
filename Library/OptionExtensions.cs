@@ -9,13 +9,11 @@ namespace Library
 {
     public static class OptionExtensions
     {
-        public static void SetGlobalsForConsul(this GlobalConfiguration globals, 
-            string deploymentId, 
+        public static void SetGlobals(this GlobalConfiguration globals, 
             GlobalConfiguration.LivenessProviderType liveness = GlobalConfiguration.LivenessProviderType.Custom,
             string dataConnectionString = "http://localhost:8500",
             string membershipTableAssembly = "OrleansConsulUtils")
         {
-            globals.DeploymentId = deploymentId;
             globals.LivenessType = liveness;
             globals.DataConnectionString = dataConnectionString;
             globals.MembershipTableAssembly = membershipTableAssembly;

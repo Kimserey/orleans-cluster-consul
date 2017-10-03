@@ -11,17 +11,18 @@ namespace Library
         public static SiloHost InitializeSilo(string deploymentId, int port, int proxy, Action<GlobalConfiguration> configureMembershipProvider = null)
         {
             var config = new ClusterConfiguration();
+            config.Globals.DeploymentId = deploymentId;
+            config.Globals.ReminderServiceType = GlobalConfiguration.ReminderServiceProviderType.Disabled;
 
             if (configureMembershipProvider == null)
             {
-                config.Globals.SetGlobalsForConsul(deploymentId);
+                config.Globals.SetGlobals();
             }
             else
             {
                 configureMembershipProvider(config.Globals);
             }
 
-            config.Globals.ReminderServiceType = GlobalConfiguration.ReminderServiceProviderType.Disabled;
             config.Defaults.SetDefaults("localhost", port, "localhost", proxy, true, Severity.Info);
 
             var siloHost = new SiloHost($"{Dns.GetHostName()}-{port}", config);

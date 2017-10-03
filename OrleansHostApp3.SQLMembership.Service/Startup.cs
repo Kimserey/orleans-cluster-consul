@@ -36,19 +36,18 @@ namespace OrleansHostApp3.SQLMembership.Service
 
         public void ConfigureOrleans(IServiceCollection services)
         {
-            services.Configure<OrleansClusterOptions>(Configuration.GetSection("Orleans:Cluster"));
+            services.Configure<SiloOptions>(Configuration);
 
             services.AddSingleton<IGrainFactoryResolver, GrainFactoryResolver>();
 
             services.AddSingleton<SiloHost>(provider =>
             {
-                var options = provider.GetService<IOptions<OrleansClusterOptions>>()?.Value;
-                return SiloFactory.InitializeSilo(options.Globals.DeploymentId, 
-                    options.Defaults.Port, 
-                    options.Defaults.ProxyGatewayEndpoint.Port,
+                var options = provider.GetService<IOptions<SiloOptions>>()?.Value;
+                return SiloFactory.InitializeSilo(options.DeploymentId, 
+                    options.Port, 
+                    options.ProxyPort,
                     globals => {
-                        globals.SetGlobalsForConsul(options.Globals.DeploymentId,
-                            GlobalConfiguration.LivenessProviderType.SqlServer,
+                        globals.SetGlobals(GlobalConfiguration.LivenessProviderType.SqlServer,
                             "Data Source=.\\SQLExpress; Database=Orleans; Trusted_Connection=True;",
                             "OrleansSqlUtils");
                     });
