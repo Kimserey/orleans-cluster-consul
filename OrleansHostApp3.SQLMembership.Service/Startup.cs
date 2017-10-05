@@ -48,8 +48,8 @@ namespace OrleansHostApp3.SQLMembership.Service
                     options.ProxyPort,
                     globals => {
                         globals.SetGlobals(GlobalConfiguration.LivenessProviderType.SqlServer,
-                            "Data Source=.\\SQLExpress; Database=Orleans; Trusted_Connection=True;",
-                            "OrleansSqlUtils");
+                            "Data Source=.\\SQLExpress; Database=Orleans; Trusted_Connection=True;", 
+                            null);
                     });
             });
         }

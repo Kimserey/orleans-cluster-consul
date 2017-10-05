@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{831F3C32-4589-42D0-8C67-387DBD851358}"
 EndProject
@@ -25,7 +25,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansSilo2", "OrleansSilo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrleansHostApp3.SQLMembership.Service", "OrleansHostApp3.SQLMembership.Service\OrleansHostApp3.SQLMembership.Service.csproj", "{B1AB7B56-D814-406C-B605-96ED04DC11DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansHostApp4.ZKMembership.Service", "OrleansHostApp4.ZKMembership.Service\OrleansHostApp4.ZKMembership.Service.csproj", "{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrleansHostApp4.ZKMembership.Service", "OrleansHostApp4.ZKMembership.Service\OrleansHostApp4.ZKMembership.Service.csproj", "{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrainWithState", "GrainWithState\GrainWithState.csproj", "{CA9D7E81-1ADF-4BE9-A086-381979D02899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrainInterface", "GrainInterface\GrainInterface.csproj", "{E81F3600-7BEF-44DD-9B21-82E7AF9B3BE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansSilo", "OrleansSilo\OrleansSilo.csproj", "{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +87,18 @@ Global
 		{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1871F0C-C7E1-45CF-ADE0-1D52030A4DA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9D7E81-1ADF-4BE9-A086-381979D02899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9D7E81-1ADF-4BE9-A086-381979D02899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9D7E81-1ADF-4BE9-A086-381979D02899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9D7E81-1ADF-4BE9-A086-381979D02899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E81F3600-7BEF-44DD-9B21-82E7AF9B3BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E81F3600-7BEF-44DD-9B21-82E7AF9B3BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E81F3600-7BEF-44DD-9B21-82E7AF9B3BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E81F3600-7BEF-44DD-9B21-82E7AF9B3BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

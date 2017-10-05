@@ -2,28 +2,29 @@
 using Orleans.Runtime.Configuration;
 using Orleans.Runtime.Host;
 using System;
+using System.Linq;
 using System.Net;
 
 namespace Library
 {
     public static class SiloFactory
     {
-        public static SiloHost InitializeSilo(string deploymentId, int port, int proxy, Action<GlobalConfiguration> configureMembershipProvider = null)
+        public static SiloHost InitializeSilo(string deploymentId, int port, int proxy, Action<ClusterConfiguration> configure = null)
         {
             var config = new ClusterConfiguration();
+
             config.Globals.DeploymentId = deploymentId;
             config.Globals.ReminderServiceType = GlobalConfiguration.ReminderServiceProviderType.Disabled;
+            config.Defaults.SetDefaults("localhost", port, "localhost", proxy, true, Severity.Info);
 
-            if (configureMembershipProvider == null)
+            if (configure == null)
             {
                 config.Globals.SetGlobals();
             }
             else
             {
-                configureMembershipProvider(config.Globals);
+                configure(config);
             }
-
-            config.Defaults.SetDefaults("localhost", port, "localhost", proxy, true, Severity.Info);
 
             var siloHost = new SiloHost($"{Dns.GetHostName()}-{port}", config);
             siloHost.InitializeOrleansSilo();
