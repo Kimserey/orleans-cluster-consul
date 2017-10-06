@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrainInterface", "GrainInte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansSilo", "OrleansSilo\OrleansSilo.csproj", "{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansClient", "OrleansClient\OrleansClient.csproj", "{8B806E64-31D0-4CE6-93C2-BE8FEA528156}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B806E64-31D0-4CE6-93C2-BE8FEA528156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B806E64-31D0-4CE6-93C2-BE8FEA528156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B806E64-31D0-4CE6-93C2-BE8FEA528156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B806E64-31D0-4CE6-93C2-BE8FEA528156}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
