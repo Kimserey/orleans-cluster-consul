@@ -14,7 +14,7 @@ namespace GrainWithState
     {
         public BankAccount() { }
 
-        public async Task AddCard(string cardNumber)
+        public Task AddCard(string cardNumber)
         {
             if (State.Cards == null)
             {
@@ -22,8 +22,7 @@ namespace GrainWithState
             }
 
             State.Cards.Add(cardNumber);
-
-            await WriteStateAsync();
+            return WriteStateAsync();
         }
 
         public Task<IEnumerable<string>> GetCards()
