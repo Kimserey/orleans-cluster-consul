@@ -33,7 +33,7 @@ namespace OrleansSilo
             SiloFactory.InitializeSilo(deploymentId, port, proxy, clusterConfig => {
                 clusterConfig.Globals.SeedNodes.Add(new IPEndPoint(IPAddress.Loopback, 30023));
                 clusterConfig.Globals.LivenessType = GlobalConfiguration.LivenessProviderType.MembershipTableGrain;
-                clusterConfig.Globals.RegisterArangoStorageProvider("store", password: "123456", collectionName: "Orleans_store");
+                clusterConfig.Globals.RegisterArangoStorageProvider("store", password: "123456", collectionName: "orleans-store");
 
                 if (port == 30023)
                 {

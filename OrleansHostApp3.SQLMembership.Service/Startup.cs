@@ -46,8 +46,8 @@ namespace OrleansHostApp3.SQLMembership.Service
                 return SiloFactory.InitializeSilo(options.DeploymentId, 
                     options.Port, 
                     options.ProxyPort,
-                    globals => {
-                        globals.SetGlobals(GlobalConfiguration.LivenessProviderType.SqlServer,
+                    clusterConfig => {
+                        clusterConfig.Globals.SetGlobals(GlobalConfiguration.LivenessProviderType.SqlServer,
                             "Data Source=.\\SQLExpress; Database=Orleans; Trusted_Connection=True;", 
                             null);
                     });

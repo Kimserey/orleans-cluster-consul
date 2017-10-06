@@ -21,7 +21,7 @@ namespace OrleansClient
         [HttpPost("{cardNumber}")]
         public async Task<IActionResult> AddCard(string cardNumber)
         {
-            var grain = _factory.GetGrain<IBankAccountGrain>(Guid.Empty, "bankAccount");
+            var grain = _factory.GetGrain<IBankAccountGrain>(Guid.Empty);
             await grain.AddCard(cardNumber);
             return Ok();
         }

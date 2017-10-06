@@ -12,7 +12,7 @@ namespace GrainWithState
     [StorageProvider(ProviderName = "store")]
     public class BankAccount : Grain<BankAccountState>, IBankAccountGrain
     {
-        protected BankAccount() { }
+        public BankAccount() { }
 
         public Task AddCard(string cardNumber)
         {

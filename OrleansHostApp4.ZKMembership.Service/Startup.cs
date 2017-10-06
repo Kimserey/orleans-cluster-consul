@@ -37,8 +37,8 @@ namespace OrleansHostApp4.ZKMembership.Service
             {
                 var options = provider.GetService<IOptions<OrleansClusterOptions>>()?.Value;
                 return SiloFactory.InitializeSilo(options.Globals.DeploymentId, options.Defaults.Port, options.Defaults.ProxyGatewayEndpoint.Port,
-                    globals => {
-                        globals.SetGlobals(GlobalConfiguration.LivenessProviderType.ZooKeeper,
+                    clusterConfig => {
+                        clusterConfig.Globals.SetGlobals(GlobalConfiguration.LivenessProviderType.ZooKeeper,
                             "127.0.0.1:2181",
                             "OrleansZooKeeperUtils");
                     });
