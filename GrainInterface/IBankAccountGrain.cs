@@ -7,6 +7,6 @@ namespace GrainInterface
     public interface IBankAccountGrain: IGrainWithGuidKey
     {
         Task AddCard(string cardNumber);
-        Task<IEnumerable<string>> GetCards(string cardNumber);
+        Task<IEnumerable<string>> GetCards();
     }
 }

@@ -25,5 +25,12 @@ namespace OrleansClient
             await grain.AddCard(cardNumber);
             return Ok();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var grain = _factory.GetGrain<IBankAccountGrain>(Guid.Empty);
+            return Ok(await grain.GetCards());
+        }
     }
 }
