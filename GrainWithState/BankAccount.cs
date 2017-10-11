@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core;
 
 namespace GrainWithState
 {
@@ -14,11 +13,6 @@ namespace GrainWithState
     public class BankAccount : Grain<BankAccountState>, IBankAccount
     {
         public BankAccount() { }
-
-        public Task Test(Test x)
-        {
-            return Task.CompletedTask;
-        }
 
         public async Task AddCard(ICard card)
         {

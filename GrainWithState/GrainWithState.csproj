@@ -154,10 +154,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{5d34d9c2-cc19-4100-97fa-0b86742198fb}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GrainInterface\GrainInterface.csproj">
       <Project>{e81f3600-7bef-44dd-9b21-82e7af9b3be4}</Project>
       <Name>GrainInterface</Name>

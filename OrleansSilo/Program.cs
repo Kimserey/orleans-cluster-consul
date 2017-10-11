@@ -2,6 +2,7 @@
 using Orleans.Runtime;
 using Orleans.Runtime.Configuration;
 using Orleans.Runtime.Host;
+using Orleans.Storage;
 using Orleans.StorageProvider.Arango;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,18 @@ namespace OrleansSilo
 
             var silo = new SiloHost(Dns.GetHostName());
             silo.InitializeOrleansSilo();
-            silo.Config.Globals.RegisterArangoStorageProvider("store", password: "123456", databaseName: "OrleansStore", collectionName: "Main");
+
+            silo.Config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("sql-store", new Dictionary<string, string>{
+                ["AdoInvariant"] = "System.Data.SqlClient",
+                ["DataConnectionString"] = "Data Source=.\\SQLExpress; Database=OrleansStore; Trusted_Connection=True;",
+                ["UseJsonFormat"] = "true"
+            });
+
+            silo.Config.Globals.RegisterArangoStorageProvider("store", 
+                password: "123456", 
+                databaseName: "OrleansStore", 
+                collectionName: "Main");
+
             if (!silo.StartOrleansSilo())
             {
                 throw new Exception("Failed to start silo.");
