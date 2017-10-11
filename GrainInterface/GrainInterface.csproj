@@ -147,8 +147,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBank.cs" />
     <Compile Include="IBankAccount.cs" />
     <Compile Include="ICard.cs" />
+    <Compile Include="ICustomer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
