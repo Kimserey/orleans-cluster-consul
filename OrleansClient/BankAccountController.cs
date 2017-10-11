@@ -21,16 +21,24 @@ namespace OrleansClient
         [HttpPost("{cardNumber}")]
         public async Task<IActionResult> AddCard(string cardNumber)
         {
-            var grain = _factory.GetGrain<IBankAccountGrain>(Guid.Empty);
-            await grain.AddCard(cardNumber);
+            var grain = _factory.GetGrain<IBankAccount>(Guid.Empty);
+            var card = _factory.GetGrain<ICard>(cardNumber);
+            await card.Activate();
+            await grain.AddCard(card);
             return Ok();
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var grain = _factory.GetGrain<IBankAccountGrain>(Guid.Empty);
-            return Ok(await grain.GetCards());
+            var grain = _factory.GetGrain<IBankAccount>(Guid.Empty);
+            var cards = await grain.GetCards();
+            foreach (var card in cards)
+            {
+                _factory.BindGrainReference(card);
+            }
+
+            return Ok(cards.Select(c => c.IsActivated().Result));
         }
     }
 }

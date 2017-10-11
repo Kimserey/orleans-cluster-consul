@@ -19,19 +19,8 @@ namespace OrleansClient
         {
             services.AddSingleton<IGrainFactory>(sp =>
             {
-                var client =
-                    new ClientBuilder()
-                        .UseConfiguration(new ClientConfiguration
-                        {
-                            DeploymentId = "main",
-                            Gateways = new List<IPEndPoint>{
-                                new IPEndPoint(IPAddress.Loopback, 40023)
-                            }
-                        })
-                        .Build();
-
+                var client = new ClientBuilder().LoadConfiguration().Build();
                 client.Connect().Wait();
-
                 return client;
             });
             services.AddMvc();

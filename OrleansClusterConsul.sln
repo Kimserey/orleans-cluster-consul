@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{831F3C32-4589-42D0-8C67-387DBD851358}"
 EndProject
@@ -33,7 +33,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrainInterface", "GrainInte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansSilo", "OrleansSilo\OrleansSilo.csproj", "{03D9EEBF-94C9-4351-AAF2-A80929BA61B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansClient", "OrleansClient\OrleansClient.csproj", "{8B806E64-31D0-4CE6-93C2-BE8FEA528156}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrleansClient", "OrleansClient\OrleansClient.csproj", "{8B806E64-31D0-4CE6-93C2-BE8FEA528156}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{5D34D9C2-CC19-4100-97FA-0B86742198FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{8B806E64-31D0-4CE6-93C2-BE8FEA528156}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B806E64-31D0-4CE6-93C2-BE8FEA528156}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B806E64-31D0-4CE6-93C2-BE8FEA528156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D34D9C2-CC19-4100-97FA-0B86742198FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D34D9C2-CC19-4100-97FA-0B86742198FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D34D9C2-CC19-4100-97FA-0B86742198FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D34D9C2-CC19-4100-97FA-0B86742198FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
