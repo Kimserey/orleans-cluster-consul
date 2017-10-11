@@ -12,6 +12,11 @@ namespace GrainWithState
     [StorageProvider(ProviderName = "sql-store")]
     public class Customer : Grain<CustomerState>, ICustomer
     {
+        public Task<string> GetName()
+        {
+            return Task.FromResult(State.Name);
+        }
+
         public Task SetName(string name)
         {
             State.Name = name;

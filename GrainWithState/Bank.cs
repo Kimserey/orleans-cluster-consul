@@ -20,11 +20,16 @@ namespace GrainWithState
                 await WriteStateAsync();
             }
 
-            if (!State.Customers.Any(c => c.GetPrimaryKey() == customer.GetPrimaryKey()))
+            if (!State.Customers.Any(c => c.GetPrimaryKeyString() == customer.GetPrimaryKeyString()))
             {
                 State.Customers.Add(customer);
                 await WriteStateAsync();
             }
+        }
+
+        public Task<List<ICustomer>> GetCustomers()
+        {
+            return Task.FromResult(State.Customers);
         }
 
         public Task SetName(string name)

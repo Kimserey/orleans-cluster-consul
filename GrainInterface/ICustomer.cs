@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace GrainInterface
 {
-    public interface ICustomer: IGrainWithGuidKey
+    public interface ICustomer: IGrainWithStringKey
     {
         Task SetName(string name);
+        Task<string> GetName();
     }
 }

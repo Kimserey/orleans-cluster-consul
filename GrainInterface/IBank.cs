@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace GrainInterface
 {
-    public interface IBank: IGrainWithGuidKey
+    public interface IBank: IGrainWithStringKey
     {
         Task SetName(string name);
         Task AddCustomer(ICustomer customer);
+        Task<List<ICustomer>> GetCustomers();
     }
 }
