@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GrainWithState
 {
-    [StorageProvider(ProviderName = "sql-store")]
+    [StorageProvider(ProviderName = "store")]
     public class Bank : Grain<BankState>, IBank
     {
         public async Task AddCustomer(ICustomer customer)

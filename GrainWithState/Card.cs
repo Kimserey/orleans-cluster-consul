@@ -31,6 +31,11 @@ namespace GrainWithState
             State.Name = name;
             return WriteStateAsync();
         }
+
+        public Task<string> GetCardNumber()
+        {
+            return Task.FromResult(this.GetPrimaryKeyString());
+        }
     }
 
     public class CardState

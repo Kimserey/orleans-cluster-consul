@@ -11,6 +11,7 @@ namespace GrainInterface
     {
         Task Activate();
         Task<bool> IsActivated();
+        Task<string> GetCardNumber();
         Task SetName(string name);
         Task SetExpiry(DateTime date);
     }
